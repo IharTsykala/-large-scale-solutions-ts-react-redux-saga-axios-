@@ -5,7 +5,7 @@ import React, { useState } from "react"
 // }
 
 const DescriptionItem: React.FunctionComponent = () => {
-  return <div></div>
+  return <div>2</div>
 }
 
 // const mapStateToProps = (state: any) => ({
