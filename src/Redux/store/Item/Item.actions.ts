@@ -5,11 +5,9 @@ import { DescriptionItemInterface } from "../../InterfacesEntity/DescriptionItem
 export const ActionTypes = {
   GET_LIST_ITEMS_FROM_DB: "[item] get list items from DB ",
   SET_LIST_ITEMS_IN_STORE: "[item] set list items in store ",
-  SET_STATE_REMOVED_FOR_ITEM_IN_STORE:
-    "[item] set state removed for item in store",
-  SET_REMOVE_DATA_FOR_ITEM_IN_STORE: "[item] set remove data for item in store",
-  SET_RECOVER_DATA_FOR_ITEM_IN_STORE:
-    "[item] set recover data for item in store",
+  SET_STATUS_FOR_ITEM_IN_STORE: "[item] set status for item in store",
+  SET_REMOVE_DATA_FOR_ITEM: "[item] set remove data for item",
+  SET_RECOVER_DATA_FOR_ITEM: "[item] set recover data for item",
   REMOVE_ITEM_FROM_LIST_ITEMS: "[item] remove item from list items",
   REMOVE_ITEM_FROM_REMOVED_LIST_ITEMS:
     "[item] remove item from removed list items",
@@ -37,9 +35,25 @@ export const setListItemsInStore = (
   payload: listItems,
 })
 
-export const setStateRemovedItemInStore = (itemId: string): Action<string> => ({
-  type: ActionTypes.SET_STATE_REMOVED_FOR_ITEM_IN_STORE,
+export const setStatusForItemInStore = (itemId: string): Action<string> => ({
+  type: ActionTypes.SET_STATUS_FOR_ITEM_IN_STORE,
   payload: itemId,
+})
+
+export const setRemoveDataForItem = (
+  itemId: string,
+  data: string
+): Action<any> => ({
+  type: ActionTypes.SET_REMOVE_DATA_FOR_ITEM,
+  payload: { itemId, data },
+})
+
+export const setRecoverDataForItem = (
+  itemId: string,
+  data: string
+): Action<any> => ({
+  type: ActionTypes.SET_RECOVER_DATA_FOR_ITEM,
+  payload: { itemId, data },
 })
 
 export const setBasePathInStore = (basePath: string): Action<string> => ({

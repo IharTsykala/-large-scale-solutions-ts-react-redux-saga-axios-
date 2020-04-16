@@ -4,6 +4,6 @@ export interface ItemInterface {
 	shortInfo: string
   more: string
 	removed?: boolean
-	removeData?: string
-	recoveryData?: string
+	removedData?: string
+	recoveredData?: string
 }

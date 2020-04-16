@@ -5,12 +5,14 @@ import { Action } from "../../interfacesAction/action.interface"
 
 export interface State {
 	listItems: [ItemInterface]
+	removedListItems: [ItemInterface]
 	descriptionItem: DescriptionItemInterface
 	basePath: string
 }
 
 const initialState: State = {
   listItems: [{} as ItemInterface],
+  removedListItems: [{} as ItemInterface],
   descriptionItem: {} as DescriptionItemInterface,
   basePath: '',
 }
@@ -25,19 +27,45 @@ export const itemReducer = (
       ...state,
       listItems: action.payload
     }
-  case ActionTypes.SET_STATE_REMOVED_FOR_ITEM_IN_STORE:
-    let newListItems = state.listItems.map(item=> {
-      // @ts-ignore
-      if(item.id === action.payload) {
+  case ActionTypes.SET_STATUS_FOR_ITEM_IN_STORE:
+  {let newListItems = state.listItems.map(item=> {
+    // @ts-ignore
+    if(item.id === action.payload) {
       	if(!item.removed) item.removed = true
-        else item.removed = false
-      }
-      return item
-    })
-    return {
-      ...state,
-      listItems: newListItems
+      else item.removed = false
     }
+    return item
+  })
+  return {
+    ...state,
+    listItems: newListItems
+  }}
+  case ActionTypes.SET_REMOVE_DATA_FOR_ITEM:
+  { let newListItems = state.listItems.map(item=> {
+    // @ts-ignore
+    if(item.id === action.payload.itemId) {
+      // @ts-ignore
+      item.recoveredData = action.payload!.data
+    }
+    return item
+  })
+  return {
+    ...state,
+    listItems: newListItems
+  }}
+  case ActionTypes.SET_RECOVER_DATA_FOR_ITEM:
+  { let newListItems = state.listItems.map(item=> {
+    // @ts-ignore
+    if(item.id === action.payload.itemId) {
+      // @ts-ignore
+      item.recoveredData = action.payload!.data
+    }
+    return item
+  })
+  return {
+    ...state,
+    listItems: newListItems
+  }}
   case ActionTypes.SET_BASE_PATH_IN_STORE:
 		  return {
 		    ...state,
