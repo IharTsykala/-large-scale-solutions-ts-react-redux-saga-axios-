@@ -1,8 +1,6 @@
 import { combineReducers } from "redux"
-import { cardItemReducer } from "./store/CardItem/CardItem.reduser"
-import { descriptionItemReducer } from "./store/DescriptionItem/DescriptionItem.reduser"
+import { itemReducer } from "./store/Item/Item.reduser"
 
 export default combineReducers({
-  cardItem: cardItemReducer,
-  descriptionItem: descriptionItemReducer,
+  item: itemReducer,
 })

@@ -5,10 +5,10 @@ import { createStore, applyMiddleware } from "redux"
 import { composeWithDevTools } from "redux-devtools-extension"
 import createSagaMiddleware from "redux-saga"
 import rootReducer from "./Redux/index"
-import cardItemSaga from "./Redux/store/CardItem/CardItem.sagas"
-import descriptionItemSaga from "./Redux/store/DescriptionItem/DescriptionItem.sagas"
+import itemSaga from "./Redux/store/Item/Item.sagas"
 import ListItems from "./Components/ListItems/ListItems"
 import DescriptionItem from "./Components/DescriptionItem/DescriptionItem"
+import Box from "@material-ui/core/Box"
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -19,15 +19,14 @@ const store = createStore(
   )
 )
 
-sagaMiddleware.run(cardItemSaga)
-sagaMiddleware.run(descriptionItemSaga)
+sagaMiddleware.run(itemSaga)
 
 const App: React.FC = () => (
   <Provider store={store}>
-    <div className={"wrapper"}>
+    <Box component="div" className={"wrapper"}>
       <ListItems />
       <DescriptionItem />
-    </div>
+    </Box>
   </Provider>
 )
 
