@@ -1,3 +1,6 @@
+[large-scale-solutions-ts-react-redux](https://IharTsykala.github.io/large-scale-solutions-ts-react-redux)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
