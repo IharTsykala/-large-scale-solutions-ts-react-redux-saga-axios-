@@ -1,6 +1,5 @@
-export interface DescriptionItem {
-  // _id: string
-  // name: string
-  // ownerUser: string
-  // photos?: any
+export interface DescriptionItemInterface {
+  id: string
+  bio: string
+  pic: string
 }

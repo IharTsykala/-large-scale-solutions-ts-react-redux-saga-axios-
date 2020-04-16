@@ -3,8 +3,7 @@ const axios = require("axios")
 export default class ServiceItem {
   static getListItemsFromDB = async () => {
     try {
-      const response = await axios(`https://mrsoft.by/tz20/list.json`)
-      console.log(response)
+      const response = await axios.get(`https://mrsoft.by/tz20/list.json`)
       return response.data
     } catch (e) {
       console.log(e)
@@ -17,7 +16,8 @@ export default class ServiceItem {
   ) => {
     try {
       const response = await axios.get(`${basePath}${userLink}`)
-      return response
+      console.log(response.data)
+      return response.data
     } catch (e) {
       console.log(e)
     }

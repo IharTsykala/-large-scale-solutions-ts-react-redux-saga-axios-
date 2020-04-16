@@ -1,6 +1,7 @@
 import { put, takeEvery } from "redux-saga/effects"
 import ServiceItem from "../../../services/service-Item"
 import { LoadingState } from "../../../shared/constants/loadingStates.enum"
+import { ItemInterface } from "../../InterfacesEntity/Item.interface"
 import {
   ActionTypes,
   setListItemsInStore,
@@ -17,10 +18,13 @@ import {
 function* setListItemsInStoreSaga(actions: any) {
   try {
     yield put(setListItemsLoadingState(LoadingState.loading))
-    const responce = yield ServiceItem.getListItemsFromDB()
-    if (responce.data.length) {
-      yield put(setListItemsInStore(responce.data))
-      yield put(setBasePathInStore(responce.basepath))
+    const response = yield ServiceItem.getListItemsFromDB()
+    if (response.data.length && response.data[0].id) {
+      yield response.data.sort((a: ItemInterface, b: ItemInterface) =>
+        a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+      )
+      yield put(setListItemsInStore(response.data))
+      yield put(setBasePathInStore(response.basepath))
       yield put(setListItemsLoadingState(LoadingState.loaded))
     } else {
       yield put(setListItemsLoadingState(LoadingState.notFound))

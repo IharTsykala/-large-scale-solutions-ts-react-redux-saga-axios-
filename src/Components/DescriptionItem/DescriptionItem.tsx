@@ -1,15 +1,48 @@
-import React, { useState } from "react"
+import React from "react"
+import { connect } from "react-redux"
+import { DescriptionItemInterface} from "../../Redux/InterfacesEntity/DescriptionItem.interface"
+import Box from "@material-ui/core/Box";
+// import List from "@material-ui/core/List";
+// import {ItemInterface} from "../../Redux/InterfacesEntity/Item.interface";
+// import ListItem from "@material-ui/core/ListItem";
+// import {getDescriptionCurrentItemFromDB} from "../../Redux/store/Item/Item.actions";
+// import ListItemText from "@material-ui/core/ListItemText/ListItemText";
 
-// type SearchProps = {
-//   dispatch: any,
-// }
+const stateLoading:string = 'loaded'
 
-const DescriptionItem: React.FunctionComponent = () => {
-  return <div>2</div>
+type DescriptionItemProps = {
+	descriptionItem: DescriptionItemInterface
+	basePath: string
+	dispatch: any
 }
 
-// const mapStateToProps = (state: any) => ({
-//   searchStringState: state.pagination.searchString,
-// })
+const DescriptionItem: React.FunctionComponent<DescriptionItemProps> = ({
+  descriptionItem,
+  basePath,
+  dispatch
+}) => {
+  return (
+    <>
+      {stateLoading === "loading" && <h1>Ожидайте ответа</h1>}
+      {stateLoading === "loaded" && (
+        <Box
+          component="div"
+          display="grid"
+          className={'descriptionItemContainer'}
+        >
+          {descriptionItem.bio && `${descriptionItem.bio}`}
+          {descriptionItem.pic && <img src={`${basePath}${descriptionItem.pic}`}/>}
+        </Box>
+      )}
+      {stateLoading === "notFound" && <h1>not found</h1>}
+      {stateLoading === "error" && <h1>ошибка</h1>}
+    </>
+  )
+}
 
-export default DescriptionItem
+const mapStateToProps = (state: any) => ({
+  descriptionItem: state.item.descriptionItem,
+  basePath: state.item.basePath,
+})
+
+export default connect(mapStateToProps)(DescriptionItem)
