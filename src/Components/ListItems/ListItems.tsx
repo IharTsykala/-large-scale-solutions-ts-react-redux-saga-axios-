@@ -11,6 +11,7 @@ const stateLoading:string = 'loaded'
 
 type ListItemsProps = {
 	listItems: [ItemInterface]
+	removedListItems: [ItemInterface]
 	descriptionItem: DescriptionItemInterface
 	basePath: string
 	dispatch: any
@@ -18,6 +19,7 @@ type ListItemsProps = {
 
 const ListItems: React.FunctionComponent<ListItemsProps> = ({
   listItems,
+  removedListItems,
   descriptionItem,
   basePath,
   dispatch
@@ -29,7 +31,7 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
 
   return (
     <>
-      {stateLoading === "loading" && <h1>Ожидайте ответа</h1>}
+      {stateLoading === "loading" && <h1>loading</h1>}
       {stateLoading === "loaded" && (
         <Box
           component="div"
@@ -43,20 +45,26 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
           >
             {(listItems.length > 0 &&
 							listItems[0].id &&
-							listItems.map((item: ItemInterface) => (
-							  <CardItem item={item} basePath={basePath} dispatch={dispatch} key={item.id}/>
+							listItems.concat(removedListItems).map((item: ItemInterface) => (
+							  (!item.removed &&
+									<CardItem item={item} basePath={basePath} dispatch={dispatch}
+									  key={item.id} className={'active_cart_item'}/>) ||
+								(item.removed &&
+									<CardItem item={item} basePath={basePath} dispatch={dispatch}
+									  key={item.id} className={'remove_cart_item'}/>)
 							)))}
           </List>
         </Box>
       )}
       {stateLoading === "notFound" && <h1>not found</h1>}
-      {stateLoading === "error" && <h1>ошибка</h1>}
+      {stateLoading === "error" && <h1>error</h1>}
     </>
   )
 }
 
 const mapStateToProps = (state: any) => ({
   listItems: state.item.listItems,
+  removedListItems: state.item.removedListItems,
   descriptionItem: state.item.descriptionItem,
   basePath: state.item.basePath
 })

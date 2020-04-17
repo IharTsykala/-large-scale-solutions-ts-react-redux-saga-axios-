@@ -34,10 +34,15 @@
 }
 
 .cardItemContainer:hover {
+  background-color: #f9fdf1;
 }
 
-.cardItemContainer:hover {
-  background-color: #f9fdf1;
+.remove_cart_item {
+  opacity: 0.6;
+}
+
+.remove_cart_item:hover {
+  background-color: initial;
 }
 
 .cardItemContainer_info {

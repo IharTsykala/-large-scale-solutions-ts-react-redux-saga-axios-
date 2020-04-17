@@ -16,7 +16,6 @@ export default class ServiceItem {
   ) => {
     try {
       const response = await axios.get(`${basePath}${userLink}`)
-      console.log(response.data)
       return response.data
     } catch (e) {
       console.log(e)

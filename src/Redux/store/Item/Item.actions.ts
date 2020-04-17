@@ -5,7 +5,9 @@ import { DescriptionItemInterface } from "../../InterfacesEntity/DescriptionItem
 export const ActionTypes = {
   GET_LIST_ITEMS_FROM_DB: "[item] get list items from DB ",
   SET_LIST_ITEMS_IN_STORE: "[item] set list items in store ",
-  SET_STATUS_FOR_ITEM_IN_STORE: "[item] set status for item in store",
+  SET_STATUS_FOR_ITEM_IN_LIST_ITEMS: "[item] set status for item in list items",
+  SET_STATUS_FOR_ITEM_IN_REMOVED_LIST_ITEMS:
+    "[item] set status for item in removed list items",
   SET_REMOVE_DATA_FOR_ITEM: "[item] set remove data for item",
   SET_RECOVER_DATA_FOR_ITEM: "[item] set recover data for item",
   REMOVE_ITEM_FROM_LIST_ITEMS: "[item] remove item from list items",
@@ -35,8 +37,17 @@ export const setListItemsInStore = (
   payload: listItems,
 })
 
-export const setStatusForItemInStore = (itemId: string): Action<string> => ({
-  type: ActionTypes.SET_STATUS_FOR_ITEM_IN_STORE,
+export const setStatusForItemInListItems = (
+  itemId: string
+): Action<string> => ({
+  type: ActionTypes.SET_STATUS_FOR_ITEM_IN_LIST_ITEMS,
+  payload: itemId,
+})
+
+export const setStatusForItemInRemovedListItems = (
+  itemId: string
+): Action<string> => ({
+  type: ActionTypes.SET_STATUS_FOR_ITEM_IN_REMOVED_LIST_ITEMS,
   payload: itemId,
 })
 
@@ -54,6 +65,30 @@ export const setRecoverDataForItem = (
 ): Action<any> => ({
   type: ActionTypes.SET_RECOVER_DATA_FOR_ITEM,
   payload: { itemId, data },
+})
+
+export const removeItemFromListItem = (itemId: string): Action<any> => ({
+  type: ActionTypes.REMOVE_ITEM_FROM_LIST_ITEMS,
+  payload: itemId,
+})
+
+export const removeItemFromRemovedListItem = (itemId: string): Action<any> => ({
+  type: ActionTypes.REMOVE_ITEM_FROM_REMOVED_LIST_ITEMS,
+  payload: itemId,
+})
+
+export const concatItemToListItems = (
+  item: ItemInterface
+): Action<ItemInterface> => ({
+  type: ActionTypes.CONCAT_ITEM_TO_LIST_ITEMS,
+  payload: item,
+})
+
+export const concatItemToRemovedListItems = (
+  item: ItemInterface
+): Action<ItemInterface> => ({
+  type: ActionTypes.CONCAT_ITEM_TO_REMOVED_LIST_ITEMS,
+  payload: item,
 })
 
 export const setBasePathInStore = (basePath: string): Action<string> => ({
