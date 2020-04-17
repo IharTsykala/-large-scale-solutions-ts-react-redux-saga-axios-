@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/large-scale-solutions-ts-react-redux/static/css/main.c5f87008.chunk.css",
-    "main.js": "/large-scale-solutions-ts-react-redux/static/js/main.c64198ba.chunk.js",
-    "main.js.map": "/large-scale-solutions-ts-react-redux/static/js/main.c64198ba.chunk.js.map",
+    "main.css": "/large-scale-solutions-ts-react-redux/static/css/main.030edb68.chunk.css",
+    "main.js": "/large-scale-solutions-ts-react-redux/static/js/main.3fe1179f.chunk.js",
+    "main.js.map": "/large-scale-solutions-ts-react-redux/static/js/main.3fe1179f.chunk.js.map",
     "runtime-main.js": "/large-scale-solutions-ts-react-redux/static/js/runtime-main.421af664.js",
     "runtime-main.js.map": "/large-scale-solutions-ts-react-redux/static/js/runtime-main.421af664.js.map",
-    "static/js/2.fae7656a.chunk.js": "/large-scale-solutions-ts-react-redux/static/js/2.fae7656a.chunk.js",
-    "static/js/2.fae7656a.chunk.js.map": "/large-scale-solutions-ts-react-redux/static/js/2.fae7656a.chunk.js.map",
+    "static/js/2.aa2a6122.chunk.js": "/large-scale-solutions-ts-react-redux/static/js/2.aa2a6122.chunk.js",
+    "static/js/2.aa2a6122.chunk.js.map": "/large-scale-solutions-ts-react-redux/static/js/2.aa2a6122.chunk.js.map",
     "index.html": "/large-scale-solutions-ts-react-redux/index.html",
-    "precache-manifest.508b527a8326b8a4983f30fab5430f77.js": "/large-scale-solutions-ts-react-redux/precache-manifest.508b527a8326b8a4983f30fab5430f77.js",
+    "precache-manifest.726c847b92bc8e99066cd0d6163a9118.js": "/large-scale-solutions-ts-react-redux/precache-manifest.726c847b92bc8e99066cd0d6163a9118.js",
     "service-worker.js": "/large-scale-solutions-ts-react-redux/service-worker.js",
-    "static/css/main.c5f87008.chunk.css.map": "/large-scale-solutions-ts-react-redux/static/css/main.c5f87008.chunk.css.map",
-    "static/js/2.fae7656a.chunk.js.LICENSE.txt": "/large-scale-solutions-ts-react-redux/static/js/2.fae7656a.chunk.js.LICENSE.txt"
+    "static/css/main.030edb68.chunk.css.map": "/large-scale-solutions-ts-react-redux/static/css/main.030edb68.chunk.css.map",
+    "static/js/2.aa2a6122.chunk.js.LICENSE.txt": "/large-scale-solutions-ts-react-redux/static/js/2.aa2a6122.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.421af664.js",
-    "static/js/2.fae7656a.chunk.js",
-    "static/css/main.c5f87008.chunk.css",
-    "static/js/main.c64198ba.chunk.js"
+    "static/js/2.aa2a6122.chunk.js",
+    "static/css/main.030edb68.chunk.css",
+    "static/js/main.3fe1179f.chunk.js"
   ]
 }
