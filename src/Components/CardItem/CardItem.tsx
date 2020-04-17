@@ -21,8 +21,7 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({ item, basePath, disp
 
   useEffect(()=>{console.log('hi')}, [item])
 
-  const handleToggle = (e:any, removed:boolean) => {
-  	// e.stopPropagation()
+  const handleToggle = (removed:boolean) => {
     if(!removed) {
       dispatch(setStatusForItemInListItems(item.id))
       dispatch(setRemoveDataForItem(item.id, new Date().toString().slice(0,24)))
@@ -36,18 +35,16 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({ item, basePath, disp
     }
   }
   return (
-    <li
-      onClick={() =>
-        !item.removed && dispatch(getDescriptionCurrentItemFromDB(basePath, item.more))
-      }
-      className={`${className} cardItemContainer`}
-    >
-      <Box component="div" className={'cardItemContainer_info'}>
+    <li className={`${className} cardItemContainer`}>
+      <Box component="div" className={'cardItemContainer_info'}
+					 onClick={() =>
+						 !item.removed && dispatch(getDescriptionCurrentItemFromDB(basePath, item.more))}
+      >
         <div> {`name: ${item.name}`} </div>
         <div> {`info: ${item.shortInfo}`} </div>
       </Box>
       <Box component="div" className={'cardItemContainer_remove'}>
-        <input type="checkbox" onChange={(e)=>handleToggle(e, item.removed || false)}
+        <input type="checkbox" onChange={()=>handleToggle(item.removed || false)}
 							 checked={item.removed || false}/>
         <p>
           {(item.removed !== undefined && !item.removed && `recover data: ${item.recoveredData}`) ||

@@ -1,6 +1,6 @@
 import React, {useEffect} from "react"
 import { connect } from "react-redux"
-import { getListItemsFromDB } from "../../Redux/store/Item/Item.actions"
+import {getListItemsFromDB, setStateFromLocalStorage} from "../../Redux/store/Item/Item.actions"
 import {ItemInterface} from "../../Redux/InterfacesEntity/Item.interface"
 import {DescriptionItemInterface} from "../../Redux/InterfacesEntity/DescriptionItem.interface"
 import List from "@material-ui/core/List"
@@ -10,6 +10,7 @@ import CardItem from "../CardItem/CardItem";
 const stateLoading:string = 'loaded'
 
 type ListItemsProps = {
+	state: {}
 	listItems: [ItemInterface]
 	removedListItems: [ItemInterface]
 	descriptionItem: DescriptionItemInterface
@@ -18,6 +19,7 @@ type ListItemsProps = {
 }
 
 const ListItems: React.FunctionComponent<ListItemsProps> = ({
+  state,
   listItems,
   removedListItems,
   descriptionItem,
@@ -26,8 +28,14 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
 }) => {
 
   useEffect(()=>{
-    dispatch(getListItemsFromDB())
+    const getLocalStorage = JSON.parse(localStorage.getItem('state') || '{"empty": "state"}')
+    if(!getLocalStorage.empty) dispatch(setStateFromLocalStorage(getLocalStorage))
+    else dispatch(getListItemsFromDB())
   },[dispatch])
+
+  useEffect(()=>{
+    localStorage.setItem('state', JSON.stringify(state))
+  }, [state])
 
   return (
     <>
@@ -43,7 +51,7 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
               'listItemsContainer_list'
             }
           >
-            {(listItems.length > 0 &&
+            {(listItems && listItems.length > 0 &&
 							listItems[0].id &&
 							listItems.concat(removedListItems).map((item: ItemInterface) => (
 							  (!item.removed &&
@@ -63,6 +71,7 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
 }
 
 const mapStateToProps = (state: any) => ({
+  state: state.item,
   listItems: state.item.listItems,
   removedListItems: state.item.removedListItems,
   descriptionItem: state.item.descriptionItem,

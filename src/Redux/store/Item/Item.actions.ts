@@ -3,6 +3,7 @@ import { ItemInterface } from "../../InterfacesEntity/Item.interface"
 import { DescriptionItemInterface } from "../../InterfacesEntity/DescriptionItem.interface"
 
 export const ActionTypes = {
+  SET_STATE_FROM_LOCAL_STORAGE: "[state] set state from localStorage",
   GET_LIST_ITEMS_FROM_DB: "[item] get list items from DB ",
   SET_LIST_ITEMS_IN_STORE: "[item] set list items in store ",
   SET_STATUS_FOR_ITEM_IN_LIST_ITEMS: "[item] set status for item in list items",
@@ -25,6 +26,11 @@ export const ActionTypes = {
 
   GET_FAILURE: "[getFailure] Get failure",
 }
+
+export const setStateFromLocalStorage = (state: {}): Action<{}> => ({
+  type: ActionTypes.SET_STATE_FROM_LOCAL_STORAGE,
+  payload: state,
+})
 
 export const getListItemsFromDB = (): Action<{}> => ({
   type: ActionTypes.GET_LIST_ITEMS_FROM_DB,

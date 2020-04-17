@@ -30,8 +30,8 @@ const DescriptionItem: React.FunctionComponent<DescriptionItemProps> = ({
           display="grid"
           className={'descriptionItemContainer'}
         >
-          {descriptionItem.bio && `${descriptionItem.bio}`}
-          {descriptionItem.pic && <img src={`${basePath}${descriptionItem.pic}`}/>}
+          {descriptionItem&&descriptionItem.bio && `${descriptionItem.bio}`}
+          {descriptionItem&&descriptionItem.pic && <img src={`${basePath}${descriptionItem.pic}`}/>}
         </Box>
       )}
       {stateLoading === "notFound" && <h1>not found</h1>}

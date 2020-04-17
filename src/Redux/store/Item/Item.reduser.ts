@@ -19,9 +19,13 @@ const initialState: State = {
 
 export const itemReducer = (
   state: State = initialState,
-  action: Action<[{}]>
+  action: Action<any>
 ) => {
   switch (action.type) {
+  case ActionTypes.SET_STATE_FROM_LOCAL_STORAGE:
+    return {
+      ...action.payload,
+    }
   case ActionTypes.SET_LIST_ITEMS_IN_STORE:
     return {
       ...state,
@@ -52,7 +56,7 @@ export const itemReducer = (
     // @ts-ignore
     if(item.id === action.payload.itemId) {
       // @ts-ignore
-      item.removedData = action.payload!.data
+      item.removedData = action.payload.data
     }
     return item
   })
@@ -63,19 +67,15 @@ export const itemReducer = (
   case ActionTypes.SET_RECOVER_DATA_FOR_ITEM:
   { let newListItems = state.removedListItems.map(item=> {
     // @ts-ignore
-    // console.log(action.payload!.data)
-    // @ts-ignore
     if(item.id === action.payload.itemId) {
       // @ts-ignore
-    	console.log(action.payload!.data)
-      // @ts-ignore
-      item.recoveredData = action.payload!.data
+      item.recoveredData = action.payload.data
     }
     return item
   })
   return {
     ...state,
-    listItems: newListItems
+    removedListItems: newListItems
   }}
   case ActionTypes.REMOVE_ITEM_FROM_LIST_ITEMS:
   {
@@ -99,7 +99,7 @@ export const itemReducer = (
     let newListItems = state.listItems.concat(action.payload).sort(
       (a: ItemInterface, b: ItemInterface) =>{
         if(a.name && b.name) return  a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-        return 0
+        return 0 //it's fake
       }
     )
     return {
@@ -112,14 +112,13 @@ export const itemReducer = (
     let newListItems = state.removedListItems.concat(action.payload).sort(
       (a: ItemInterface, b: ItemInterface) =>{
       	if(a.name && b.name) return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-        return 0
+        return 0 //it's fake
       }
     )
     return {
       ...state,
       removedListItems: newListItems
     }}
-
   case ActionTypes.SET_BASE_PATH_IN_STORE:
 		  return {
 		    ...state,
