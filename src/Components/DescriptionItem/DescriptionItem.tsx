@@ -1,14 +1,9 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
 import { DescriptionItemInterface } from "../../Redux/InterfacesEntity/DescriptionItem.interface"
-import Box from "@material-ui/core/Box"
-// import List from "@material-ui/core/List";
-// import {ItemInterface} from "../../Redux/InterfacesEntity/Item.interface";
-// import ListItem from "@material-ui/core/ListItem";
-// import {getDescriptionCurrentItemFromDB} from "../../Redux/store/Item/Item.actions";
-// import ListItemText from "@material-ui/core/ListItemText/ListItemText";
-import Avatar from "@material-ui/core/Avatar"
 import { ItemInterface } from "../../Redux/InterfacesEntity/Item.interface"
+import Box from "@material-ui/core/Box"
+import Avatar from "@material-ui/core/Avatar"
 
 const stateLoading: string = "loaded"
 
@@ -25,10 +20,8 @@ const DescriptionItem: React.FunctionComponent<DescriptionItemProps> = ({
   descriptionItem,
   currentItem,
   basePath,
-  dispatch,
 }) => {
   useEffect(() => {}, [currentItem.removed, listItems])
-
   return (
     <>
       {stateLoading === "loading" && <h1>loading</h1>}

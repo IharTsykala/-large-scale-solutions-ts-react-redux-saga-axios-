@@ -25,7 +25,6 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
   state,
   listItems,
   removedListItems,
-  descriptionItem,
   basePath,
   dispatch,
 }) => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { ItemInterface } from "../../Redux/InterfacesEntity/Item.interface"
 import {
   concatItemToListItems,
@@ -26,10 +26,6 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({
   dispatch,
   className,
 }) => {
-  useEffect(() => {
-    console.log("hi")
-  }, [item])
-
   const handleToggle = (removed: boolean) => {
     if (!removed) {
       dispatch(setStatusForItemInListItems(item.id))
