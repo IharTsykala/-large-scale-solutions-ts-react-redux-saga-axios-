@@ -4,16 +4,18 @@ import { ActionTypes } from "./Item.actions"
 import { Action } from "../../interfacesAction/action.interface"
 
 export interface State {
-	listItems: [ItemInterface]
-	removedListItems: []
-	descriptionItem: DescriptionItemInterface
-	basePath: string
+	listItems: [ItemInterface],
+	removedListItems: [],
+	descriptionItem: DescriptionItemInterface,
+	currentItem: ItemInterface,
+	basePath: string,
 }
 
 const initialState: State = {
   listItems: [{} as ItemInterface],
   removedListItems: [],
   descriptionItem: {} as DescriptionItemInterface,
+  currentItem: {} as ItemInterface,
   basePath: '',
 }
 
@@ -31,55 +33,57 @@ export const itemReducer = (
       ...state,
       listItems: action.payload
     }
+  case ActionTypes.SET_CURRENT_ITEM_IN_STORE:
+    return {
+      ...state,
+      currentItem: action.payload
+    }
   case ActionTypes.SET_STATUS_FOR_ITEM_IN_LIST_ITEMS:
-  {let newListItems = state.listItems.map(item=> {
-    // @ts-ignore
-    if(item.id === action.payload) item.removed = true
-    return item
-  })
-  return {
-    ...state,
-    listItems: newListItems
-  }}
+  {
+  	let newListItems = state.listItems.map(item=> {
+      if(item.id === action.payload) item.removed = true
+      return item
+    })
+    return {
+      ...state,
+      listItems: newListItems
+    }}
   case ActionTypes.SET_STATUS_FOR_ITEM_IN_REMOVED_LIST_ITEMS:
-  {let newListItems = state.removedListItems.map(item=> {
+  {
+  	let newListItems = state.removedListItems.map(item=> {
     // @ts-ignore
-    if(item.id === action.payload) item.removed = false
-    return item
-  })
-  return {
-    ...state,
-    removedListItems: newListItems
-  }}
+      if(item.id === action.payload) item.removed = false
+      return item
+    })
+    return {
+      ...state,
+      removedListItems: newListItems
+    }}
   case ActionTypes.SET_REMOVE_DATA_FOR_ITEM:
-  { let newListItems = state.listItems.map(item=> {
-    // @ts-ignore
-    if(item.id === action.payload.itemId) {
-      // @ts-ignore
-      item.removedData = action.payload.data
-    }
-    return item
-  })
-  return {
-    ...state,
-    listItems: newListItems
-  }}
+  {
+  	let newListItems = state.listItems.map(item=> {
+      if(item.id === action.payload.itemId) {
+        item.removedData = action.payload.data
+      }
+      return item
+    })
+    return {
+      ...state,
+      listItems: newListItems
+    }}
   case ActionTypes.SET_RECOVER_DATA_FOR_ITEM:
-  { let newListItems = state.removedListItems.map(item=> {
+  {
+  	let newListItems = state.removedListItems.map(item=> {
     // @ts-ignore
-    if(item.id === action.payload.itemId) {
-      // @ts-ignore
-      item.recoveredData = action.payload.data
-    }
-    return item
-  })
-  return {
-    ...state,
-    removedListItems: newListItems
-  }}
+      if(item.id === action.payload.itemId) item.recoveredData = action.payload.data
+      return item
+    })
+    return {
+      ...state,
+      removedListItems: newListItems
+    }}
   case ActionTypes.REMOVE_ITEM_FROM_LIST_ITEMS:
   {
-    // @ts-ignore
     let newListItems = state.listItems.filter(item=>item.id !== action.payload)
     return {
       ...state,
@@ -95,7 +99,6 @@ export const itemReducer = (
     }}
   case ActionTypes.CONCAT_ITEM_TO_LIST_ITEMS:
   {
-    // @ts-ignore
     let newListItems = state.listItems.concat(action.payload).sort(
       (a: ItemInterface, b: ItemInterface) =>{
         if(a.name && b.name) return  a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
@@ -108,7 +111,6 @@ export const itemReducer = (
     }}
   case ActionTypes.CONCAT_ITEM_TO_REMOVED_LIST_ITEMS:
   {
-    // @ts-ignore
     let newListItems = state.removedListItems.concat(action.payload).sort(
       (a: ItemInterface, b: ItemInterface) =>{
       	if(a.name && b.name) return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1

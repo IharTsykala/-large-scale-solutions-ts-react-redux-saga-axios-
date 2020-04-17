@@ -6,6 +6,7 @@ export const ActionTypes = {
   SET_STATE_FROM_LOCAL_STORAGE: "[state] set state from localStorage",
   GET_LIST_ITEMS_FROM_DB: "[item] get list items from DB ",
   SET_LIST_ITEMS_IN_STORE: "[item] set list items in store ",
+  SET_CURRENT_ITEM_IN_STORE: "[item] set current item in store",
   SET_STATUS_FOR_ITEM_IN_LIST_ITEMS: "[item] set status for item in list items",
   SET_STATUS_FOR_ITEM_IN_REMOVED_LIST_ITEMS:
     "[item] set status for item in removed list items",
@@ -34,6 +35,13 @@ export const setStateFromLocalStorage = (state: {}): Action<{}> => ({
 
 export const getListItemsFromDB = (): Action<{}> => ({
   type: ActionTypes.GET_LIST_ITEMS_FROM_DB,
+})
+
+export const setCurrentItemInStore = (
+  item: ItemInterface
+): Action<ItemInterface> => ({
+  type: ActionTypes.SET_CURRENT_ITEM_IN_STORE,
+  payload: item,
 })
 
 export const setListItemsInStore = (
