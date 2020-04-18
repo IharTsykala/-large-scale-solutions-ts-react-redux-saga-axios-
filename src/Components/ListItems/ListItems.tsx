@@ -29,10 +29,10 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
   dispatch,
 }) => {
   useEffect(() => {
-    const state = JSON.parse(
-      localStorage.getItem("state") || '{"empty": "state"}'
+    const stateStorage = JSON.parse(
+      localStorage.getItem("state") || '{"basePath": ""}'
     )
-    if (!state.empty) dispatch(setStateFromLocalStorage(state))
+    if (stateStorage.basePath) dispatch(setStateFromLocalStorage(stateStorage))
     else dispatch(getListItemsFromDB())
   }, [dispatch])
 
