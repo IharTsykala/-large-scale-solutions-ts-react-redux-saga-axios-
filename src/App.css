@@ -36,6 +36,10 @@
   background-color: #f9fdf1;
 }
 
+.chosen_item {
+  background-color: #f9fdf1;
+}
+
 .remove_cart_item {
   opacity: 0.4;
 }

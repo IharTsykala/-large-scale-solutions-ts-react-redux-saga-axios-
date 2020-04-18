@@ -25,6 +25,7 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
   state,
   listItems,
   removedListItems,
+  descriptionItem,
   basePath,
   dispatch,
 }) => {
@@ -51,27 +52,23 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
               listItems[0].id &&
               listItems
                 .concat(removedListItems)
-                .map(
-                  (item: ItemInterface) =>
-                    (!item.removed && (
-                      <CardItem
-                        item={item}
-                        basePath={basePath}
-                        dispatch={dispatch}
-                        key={item.id}
-                        className={"active_cart_item"}
-                      />
-                    )) ||
-                    (item.removed && (
-                      <CardItem
-                        item={item}
-                        basePath={basePath}
-                        dispatch={dispatch}
-                        key={item.id}
-                        className={"remove_cart_item"}
-                      />
-                    ))
-                )}
+                .map((item: ItemInterface) => (
+                  <CardItem
+                    item={item}
+                    basePath={basePath}
+                    dispatch={dispatch}
+                    key={item.id}
+                    className={
+                      (!item.removed &&
+                        ((descriptionItem.id === item.id &&
+                          "active_cart_item chosen_item") ||
+                          (descriptionItem.id !== item.id &&
+                            "active_cart_item"))) ||
+                      (item.removed && "remove_cart_item") ||
+                      "active_cart_item"
+                    }
+                  />
+                ))}
           </List>
         </Box>
       )}
