@@ -4,7 +4,9 @@ export default class ServiceItem {
   static getListItemsFromDB = async () => {
     try {
       console.log("hi")
-      const response = await axios.get(`https://mrsoft.by/tz20/list.json`)
+      const response = await axios.get(
+        `${"https://cors-anywhere.herokuapp.com/"}https://mrsoft.by/tz20/list.json`
+      )
       return response.data
     } catch (e) {
       console.log(e)
@@ -16,7 +18,9 @@ export default class ServiceItem {
     userLink: string
   ) => {
     try {
-      const response = await axios.get(`${basePath}${userLink}`)
+      const response = await axios.get(
+        `${"https://cors-anywhere.herokuapp.com/"}${basePath}${userLink}`
+      )
       return response.data
     } catch (e) {
       console.log(e)
