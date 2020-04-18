@@ -55,6 +55,7 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
                 .map((item: ItemInterface) => (
                   <CardItem
                     item={item}
+                    currentItemId={descriptionItem.id}
                     basePath={basePath}
                     dispatch={dispatch}
                     key={item.id}

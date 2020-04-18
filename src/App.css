@@ -71,7 +71,7 @@
 }
 
 .descriptionItemContainer_name_and_avatar{
-  grid-template-rows: 20vw 30px 1fr;
+  grid-template-rows: 20vw 50px 1fr;
   justify-items: center;
 }
 

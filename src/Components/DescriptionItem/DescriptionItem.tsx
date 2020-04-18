@@ -4,6 +4,7 @@ import { DescriptionItemInterface } from "../../Redux/InterfacesEntity/Descripti
 import { ItemInterface } from "../../Redux/InterfacesEntity/Item.interface"
 import Box from "@material-ui/core/Box"
 import Avatar from "@material-ui/core/Avatar"
+import Typography from "@material-ui/core/Typography"
 
 const stateLoading: string = "loaded"
 
@@ -26,11 +27,25 @@ const DescriptionItem: React.FunctionComponent<DescriptionItemProps> = ({
     <>
       {stateLoading === "loading" && <h1>loading</h1>}
       {stateLoading === "loaded" &&
-        ((!descriptionItem.id && <h3>Choose item!</h3>) ||
-          (descriptionItem && currentItem.removed && (
-            <h3>This item had removed, choose another!</h3>
+        ((!descriptionItem.id && (
+          <Typography
+            variant="h3"
+            gutterBottom
+            className={"descriptionItemContainer_choose_item"}
+          >
+            Choose item!
+          </Typography>
+        )) ||
+          (currentItem.removed && (
+            <Typography
+              variant="h3"
+              gutterBottom
+              className={"descriptionItemContainer_choose_another_item"}
+            >
+              This item had removed, choose another!
+            </Typography>
           )) ||
-          (descriptionItem && !currentItem.removed && (
+          (!currentItem.removed && (
             <Box
               component="div"
               display="grid"
@@ -46,16 +61,21 @@ const DescriptionItem: React.FunctionComponent<DescriptionItemProps> = ({
                   src={`${basePath}${descriptionItem.pic}`}
                   className={"descriptionItemContainer_avatar"}
                 />
-                <h4>{currentItem.name}</h4>
-                <p>{currentItem.shortInfo}</p>
+                <Typography variant="h4" gutterBottom>
+                  {currentItem.name}
+                </Typography>
+                <Typography variant="subtitle1" gutterBottom>
+                  {currentItem.shortInfo}
+                </Typography>
               </Box>
               <Box
                 component="div"
                 display="grid"
                 className={"descriptionItemContainer_bio"}
               >
-                {" "}
-                {descriptionItem.bio}
+                <Typography variant="body1" gutterBottom>
+                  {descriptionItem.bio}
+                </Typography>
               </Box>
             </Box>
           )))}
