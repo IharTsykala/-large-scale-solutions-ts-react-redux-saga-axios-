@@ -33,9 +33,7 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({
   }, [currentItemId, dispatch, item])
 
   const handleToggle = (removed: boolean) => {
-    console.log(removed)
     if (!removed) {
-      console.log(item.id)
       dispatch(setStatusForItemInListItems(item.id))
       dispatch(
         setRemoveDataForItem(item.id, new Date().toString().slice(0, 24))
