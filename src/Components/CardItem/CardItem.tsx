@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import Divider from "@material-ui/core/Divider"
 import Box from "@material-ui/core/Box"
-
+import Checkbox from "@material-ui/core/Checkbox"
 import {
   concatItemToListItems,
   concatItemToRemovedListItems,
@@ -84,10 +84,10 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({
           display="grid"
           className={"cardItemContainer_remove"}
         >
-          <input
-            type="checkbox"
+          <Checkbox
             onChange={() => handleToggle(item.removed || false)}
             checked={item.removed || false}
+            color="primary"
           />
         </Box>
       </ListItem>

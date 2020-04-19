@@ -34,10 +34,6 @@
   grid-template-columns: 90% 10%;
 }
 
-.removed_cart_item {
-  /*opacity: 0.4;*/
-}
-
 .removed_cart_item:hover {
   background-color: initial;
 }
@@ -114,8 +110,15 @@
   .wrapper {
     grid-template-columns: 300px 1fr;
   }
+  .listItemsContainer {
+    /*border-right: 1px solid #1d56fd;*/
+    /*max-height: 100%;*/
+    /*overflow-y: auto;*/
+    /*min-width: 300px;*/
+  }
   .descriptionItemContainer {
     grid-template-rows: 40vw 1fr;
+    /*grid-template-columns: 1fr 30px !important;*/
   }
   .descriptionItemContainer_name_and_avatar{
     grid-template-rows: 30vw 50px 1fr;
