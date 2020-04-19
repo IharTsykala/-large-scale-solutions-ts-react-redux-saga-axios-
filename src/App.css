@@ -42,7 +42,6 @@
 }
 
 .cardItemContainer_info {
-  margin: 0 !important;
   padding: 0 !important;
   display: grid !important;
   justify-content: start !important;
@@ -51,9 +50,8 @@
   grid-template-rows: repeat(3, 1fr);
 }
 
-.cardItemContainer_info p{
-  margin: 0;
-  padding: 0;
+.cardItemContainer_info span span{
+  max-height: 25px;
 }
 
 .cardItemContainer_remove p{

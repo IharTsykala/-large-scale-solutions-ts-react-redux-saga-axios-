@@ -2,7 +2,10 @@ import React, { useEffect } from "react"
 import { ItemInterface } from "../../Redux/InterfacesEntity/Item.interface"
 import ListItem from "@material-ui/core/ListItem"
 import Button from "@material-ui/core/Button"
+import Typography from "@material-ui/core/Typography"
 import Divider from "@material-ui/core/Divider"
+import Box from "@material-ui/core/Box"
+
 import {
   concatItemToListItems,
   concatItemToRemovedListItems,
@@ -66,23 +69,27 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({
             dispatch(setCurrentItemInStore(item))
           }
         >
-          <p> {`name: ${item.name}`} </p>
-          <p> {`info: ${item.shortInfo}`} </p>
-          <p>
+          <Typography variant="button"> {`name: ${item.name}`} </Typography>
+          <Typography variant="button">{`info: ${item.shortInfo}`}</Typography>
+          <Typography variant="overline">
             {(item.removed !== undefined &&
               !item.removed &&
               `recover data: ${item.recoveredData}`) ||
               (item.removed && `removed data: ${item.removedData}`) ||
               (item.removed === undefined && `haven't taken action yet`)}
-          </p>
+          </Typography>
         </Button>
-        <div className={"cardItemContainer_remove"}>
+        <Box
+          component="div"
+          display="grid"
+          className={"cardItemContainer_remove"}
+        >
           <input
             type="checkbox"
             onChange={() => handleToggle(item.removed || false)}
             checked={item.removed || false}
           />
-        </div>
+        </Box>
       </ListItem>
       <Divider variant="inset" component="li" />
     </>
