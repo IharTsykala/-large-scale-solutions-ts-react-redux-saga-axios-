@@ -9,6 +9,7 @@ import itemSaga from "./Redux/store/Item/Item.sagas"
 import ListItems from "./Components/ListItems/ListItems"
 import DescriptionItem from "./Components/DescriptionItem/DescriptionItem"
 import Box from "@material-ui/core/Box"
+import ScopedCssBaseline from "@material-ui/core/ScopedCssBaseline"
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -23,10 +24,12 @@ sagaMiddleware.run(itemSaga)
 
 const App: React.FC = () => (
   <Provider store={store}>
-    <Box component="div" className={"wrapper"}>
-      <ListItems />
-      <DescriptionItem />
-    </Box>
+    <ScopedCssBaseline>
+      <Box component="div" className={"wrapper"}>
+        <ListItems />
+        <DescriptionItem />
+      </Box>
+    </ScopedCssBaseline>
   </Provider>
 )
 
