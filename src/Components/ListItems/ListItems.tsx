@@ -63,7 +63,7 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
                       (!item.removed &&
                         descriptionItem.id === item.id &&
                         "active_cart_item chosen_item") ||
-                      (item.removed && "remove_cart_item") ||
+                      (item.removed && "removed_cart_item") ||
                       "active_cart_item"
                     }
                   />

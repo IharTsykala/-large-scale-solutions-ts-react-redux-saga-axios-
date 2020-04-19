@@ -61,7 +61,7 @@ const DescriptionItem: React.FunctionComponent<DescriptionItemProps> = ({
                   src={`${basePath}${descriptionItem.pic}`}
                   className={"descriptionItemContainer_avatar"}
                 />
-                <Typography variant="h4" gutterBottom>
+                <Typography variant="h5" gutterBottom>
                   {currentItem.name}
                 </Typography>
                 <Typography variant="subtitle1" gutterBottom>

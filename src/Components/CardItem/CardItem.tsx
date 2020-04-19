@@ -1,5 +1,8 @@
 import React, { useEffect } from "react"
 import { ItemInterface } from "../../Redux/InterfacesEntity/Item.interface"
+import ListItem from "@material-ui/core/ListItem"
+import Button from "@material-ui/core/Button"
+import Divider from "@material-ui/core/Divider"
 import {
   concatItemToListItems,
   concatItemToRemovedListItems,
@@ -50,33 +53,38 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({
     }
   }
   return (
-    <li className={`${className} cardItemContainer`}>
-      <div
-        className={"cardItemContainer_info"}
-        onClick={() =>
-          !item.removed &&
-          dispatch(getDescriptionCurrentItemFromDB(basePath, item.more)) &&
-          dispatch(setCurrentItemInStore(item))
-        }
-      >
-        <p> {`name: ${item.name}`} </p>
-        <p> {`info: ${item.shortInfo}`} </p>
-        <p>
-          {(item.removed !== undefined &&
+    <>
+      <ListItem className={`${className} cardItemContainer`}>
+        <Button
+          color="primary"
+          className={"cardItemContainer_info"}
+          disabled={item.removed && true}
+          onClick={() =>
             !item.removed &&
-            `recover data: ${item.recoveredData}`) ||
-            (item.removed && `remove data: ${item.removedData}`) ||
-            (item.removed === undefined && `haven't taken action yet`)}
-        </p>
-      </div>
-      <div className={"cardItemContainer_remove"}>
-        <input
-          type="checkbox"
-          onChange={() => handleToggle(item.removed || false)}
-          checked={item.removed || false}
-        />
-      </div>
-    </li>
+            dispatch(getDescriptionCurrentItemFromDB(basePath, item.more)) &&
+            dispatch(setCurrentItemInStore(item))
+          }
+        >
+          <p> {`name: ${item.name}`} </p>
+          <p> {`info: ${item.shortInfo}`} </p>
+          <p>
+            {(item.removed !== undefined &&
+              !item.removed &&
+              `recover data: ${item.recoveredData}`) ||
+              (item.removed && `removed data: ${item.removedData}`) ||
+              (item.removed === undefined && `haven't taken action yet`)}
+          </p>
+        </Button>
+        <div className={"cardItemContainer_remove"}>
+          <input
+            type="checkbox"
+            onChange={() => handleToggle(item.removed || false)}
+            checked={item.removed || false}
+          />
+        </div>
+      </ListItem>
+      <Divider variant="inset" component="li"/>
+    </>
   )
 }
 
