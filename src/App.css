@@ -29,7 +29,6 @@
   height: 80px;
   margin: 0 !important;
   padding: 0 !important;
-  /*border-bottom: 1px solid #0087fd;*/
   display: grid !important;
   grid-template-columns: 95% 5%;
 }
@@ -60,6 +59,7 @@
 .cardItemContainer_remove p{
   margin: 0;
   padding: 0;
+  /*cursor: pointer;*/
 }
 
 .descriptionItemContainer {

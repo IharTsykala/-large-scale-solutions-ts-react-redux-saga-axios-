@@ -54,8 +54,9 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({
   }
   return (
     <>
-      <ListItem className={`${className} cardItemContainer`}>
+      <ListItem className={`cardItemContainer`}>
         <Button
+          variant={(className === "chosen_item" && "contained") || "text"}
           color="primary"
           className={"cardItemContainer_info"}
           disabled={item.removed && true}
@@ -83,7 +84,7 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({
           />
         </div>
       </ListItem>
-      <Divider variant="inset" component="li"/>
+      <Divider variant="inset" component="li" />
     </>
   )
 }
