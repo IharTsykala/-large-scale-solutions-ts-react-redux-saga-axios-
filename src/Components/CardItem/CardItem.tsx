@@ -21,7 +21,7 @@ import {
 
 type CardItemProps = {
   item: ItemInterface,
-  currentItemId: string,
+  currentItem: boolean,
   basePath: string,
   dispatch: any,
   className: string,
@@ -29,15 +29,14 @@ type CardItemProps = {
 
 const CardItem: React.FunctionComponent<CardItemProps> = ({
   item,
-  currentItemId,
+  currentItem,
   basePath,
   dispatch,
   className,
 }) => {
   useEffect(() => {
-    if (currentItemId === item.id) dispatch(setCurrentItemInStore(item))
-  }, [currentItemId, dispatch, item])
-
+    if (currentItem) dispatch(setCurrentItemInStore(item))
+  }, [currentItem, dispatch, item.removed])
   const handleToggle = (removed: boolean) => {
     if (!removed) {
       dispatch(setStatusForItemInListItems(item.id))
