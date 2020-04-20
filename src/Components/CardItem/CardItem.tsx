@@ -73,10 +73,9 @@ const CardItem: React.FunctionComponent<CardItemProps> = ({
           <Typography variant="button">{`info: ${item.shortInfo}`}</Typography>
           <Typography variant="overline">
             {(item.removed !== undefined &&
-              !item.removed &&
-              `recover data: ${item.recoveredData}`) ||
-              (item.removed && `removed data: ${item.removedData}`) ||
-              (item.removed === undefined && `haven't taken action yet`)}
+              ((!item.removed && `recover data: ${item.recoveredData}`) ||
+                (item.removed && `removed data: ${item.removedData}`))) ||
+              `haven't taken action yet`}
           </Typography>
         </Button>
         <Box

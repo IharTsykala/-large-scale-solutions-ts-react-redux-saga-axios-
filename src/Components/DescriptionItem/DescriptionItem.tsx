@@ -17,7 +17,7 @@ type DescriptionItemProps = {
 }
 
 const DescriptionItem: React.FunctionComponent<DescriptionItemProps> = ({
-  listItems, // made re-render
+  listItems, // make re-render
   descriptionItem,
   currentItem,
   basePath,
