@@ -31,7 +31,7 @@
   margin: 0 !important;
   padding: 0 !important;
   display: grid !important;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: 90% 1fr;
 }
 
 .removed_cart_item:hover {
@@ -50,6 +50,10 @@
 
 .cardItemContainer_info span span{
   max-height: 25px;
+}
+
+.cardItemContainer_info span span:last-child{
+  font-size: 12px;
 }
 
 .cardItemContainer_remove input{
@@ -92,11 +96,23 @@
 }
 
 @media (max-width: 1280px) {
+  .wrapper {
+    grid-template-columns: 35vw 1fr;
+  }
+  .cardItemContainer {
+    grid-template-columns: 85% 15%;
+  }
   .descriptionItemContainer {
     grid-template-columns: 1fr;
     grid-template-rows: 30vw 1fr;
     justify-self: center;
     font-size: 12px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    grid-template-columns: 40vw 1fr;
   }
   .cardItemContainer_info span span{
     font-size: 12px;
@@ -104,21 +120,8 @@
   .cardItemContainer_info span span:last-child{
     font-size: 10px;
   }
-}
-
-@media (max-width: 1024px) {
-  .wrapper {
-    grid-template-columns: 300px 1fr;
-  }
-  .listItemsContainer {
-    /*border-right: 1px solid #1d56fd;*/
-    /*max-height: 100%;*/
-    /*overflow-y: auto;*/
-    /*min-width: 300px;*/
-  }
   .descriptionItemContainer {
     grid-template-rows: 40vw 1fr;
-    /*grid-template-columns: 1fr 30px !important;*/
   }
   .descriptionItemContainer_name_and_avatar{
     grid-template-rows: 30vw 50px 1fr;
@@ -130,15 +133,30 @@
 }
 
 @media (max-width: 800px) {
-  .descriptionItemContainer {
-    grid-template-rows: 45vw 1fr;
-  }
-}
-
-@media (max-width: 640px) {
   .wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
+  }
+  .listItemsContainer {
+    border-right: none;
+  }
+  .cardItemContainer {
+    grid-template-columns: 90% 1fr;
+  }
+  .cardItemContainer_info span span{
+    font-size: 16px;
+  }
+  .cardItemContainer_info span span:last-child{
+    font-size: 14px;
+  }
+  .descriptionItemContainer {
+    border-top: 1px solid #1d56fd;
+    grid-template-rows: 45vw 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .cardItemContainer {
+    grid-template-columns: 85% 1fr;
   }
   .descriptionItemContainer {
     grid-template-rows: 50vw 1fr;
@@ -153,6 +171,12 @@
 }
 
 @media (max-width: 440px) {
+  .cardItemContainer_info span span{
+    font-size: 12px;
+  }
+  .cardItemContainer_info span span:last-child{
+    font-size: 10px;
+  }
   .descriptionItemContainer {
     grid-template-rows: 65vw 1fr;
   }
@@ -162,5 +186,14 @@
   .descriptionItemContainer_avatar {
     min-width: 40vw;
     min-height: 40vw;
+  }
+}
+
+@media (max-width: 319px) {
+  .cardItemContainer_info span span{
+    font-size: 11px;
+  }
+  .cardItemContainer_info span span:last-child{
+    font-size: 9px;
   }
 }
