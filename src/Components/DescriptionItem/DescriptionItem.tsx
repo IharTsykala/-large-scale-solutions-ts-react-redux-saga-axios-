@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { connect } from "react-redux"
 import { DescriptionItemInterface } from "../../Redux/InterfacesEntity/DescriptionItem.interface"
 import { ItemInterface } from "../../Redux/InterfacesEntity/Item.interface"
@@ -17,12 +17,11 @@ type DescriptionItemProps = {
 }
 
 const DescriptionItem: React.FunctionComponent<DescriptionItemProps> = ({
-  listItems,
+  listItems, // made re-render
   descriptionItem,
   currentItem,
   basePath,
 }) => {
-  useEffect(() => {}, [currentItem.removed, listItems])
   return (
     <>
       {stateLoading === "loading" && <h1>loading</h1>}

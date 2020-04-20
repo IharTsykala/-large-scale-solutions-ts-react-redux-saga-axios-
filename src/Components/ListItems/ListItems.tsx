@@ -47,9 +47,8 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
       {stateLoading === "loaded" && (
         <Box component="div" display="grid" className={"listItemsContainer"}>
           <List className={"listItemsContainer_list"}>
-            {listItems &&
-              listItems.length > 0 &&
-              listItems[0].id &&
+            {((listItems.length && listItems[0].id) ||
+              (removedListItems.length && removedListItems[0].id)) &&
               listItems
                 .concat(removedListItems)
                 .map((item: ItemInterface) => (
