@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/amazing-cats/static/css/main.d3aa4b28.chunk.css",
-    "main.js": "/amazing-cats/static/js/main.8a75a640.chunk.js",
-    "main.js.map": "/amazing-cats/static/js/main.8a75a640.chunk.js.map",
+    "main.js": "/amazing-cats/static/js/main.c543b1d8.chunk.js",
+    "main.js.map": "/amazing-cats/static/js/main.c543b1d8.chunk.js.map",
     "runtime-main.js": "/amazing-cats/static/js/runtime-main.b6556602.js",
     "runtime-main.js.map": "/amazing-cats/static/js/runtime-main.b6556602.js.map",
     "static/js/2.6e1d962a.chunk.js": "/amazing-cats/static/js/2.6e1d962a.chunk.js",
     "static/js/2.6e1d962a.chunk.js.map": "/amazing-cats/static/js/2.6e1d962a.chunk.js.map",
     "index.html": "/amazing-cats/index.html",
-    "precache-manifest.148ce468238c57b3ca907195ef301cca.js": "/amazing-cats/precache-manifest.148ce468238c57b3ca907195ef301cca.js",
+    "precache-manifest.8b736fabe415d238d9b7704eb42a5a8d.js": "/amazing-cats/precache-manifest.8b736fabe415d238d9b7704eb42a5a8d.js",
     "service-worker.js": "/amazing-cats/service-worker.js",
     "static/css/main.d3aa4b28.chunk.css.map": "/amazing-cats/static/css/main.d3aa4b28.chunk.css.map",
     "static/js/2.6e1d962a.chunk.js.LICENSE.txt": "/amazing-cats/static/js/2.6e1d962a.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b6556602.js",
     "static/js/2.6e1d962a.chunk.js",
     "static/css/main.d3aa4b28.chunk.css",
-    "static/js/main.8a75a640.chunk.js"
+    "static/js/main.c543b1d8.chunk.js"
   ]
 }

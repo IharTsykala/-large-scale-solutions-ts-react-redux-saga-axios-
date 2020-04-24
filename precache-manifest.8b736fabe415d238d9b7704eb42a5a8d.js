@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f966b78ca01576127c6856a91746be3f",
+    "revision": "a6c6f077b227b1fb3192f5ca682986f9",
     "url": "/amazing-cats/index.html"
   },
   {
-    "revision": "091f189ada1267603b31",
+    "revision": "f320111f38f21182b20e",
     "url": "/amazing-cats/static/css/main.d3aa4b28.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/amazing-cats/static/js/2.6e1d962a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "091f189ada1267603b31",
-    "url": "/amazing-cats/static/js/main.8a75a640.chunk.js"
+    "revision": "f320111f38f21182b20e",
+    "url": "/amazing-cats/static/js/main.c543b1d8.chunk.js"
   },
   {
     "revision": "a7a43f5058056477a6e4",
