@@ -3,7 +3,9 @@ const axios = require("axios")
 export default class ServiceItem {
   static getListItemsFromDB = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/tz20/list.json`)
+      const response = await axios.get(
+        `https://amazing-cats.herokuapp.com/tz20/list.json`
+      )
       return response.data
     } catch (e) {
       console.log(e)
